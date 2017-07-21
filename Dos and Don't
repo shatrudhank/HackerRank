@@ -1,0 +1,10 @@
+1. Console can input take input only upto 256 character
+    Console.SetIn(new StreamReader(Console.OpenStandardInput(),
+                               Console.InputEncoding,
+                               false,
+                               bufferSize: 99999999));
+                               
+2. Use hashset because .Contains method has O(1) complexity if we want lookup
+    Reference:  https://www.hackerrank.com/challenges/weighted-uniform-string/submissions
+    
+3. convert a unknown type to string type by using .toString() can be dangerous if the object is null.
