@@ -1,0 +1,6 @@
+//To increase size of console input since it can take only 256 characters
+
+Console.SetIn(new StreamReader(Console.OpenStandardInput(),
+                               Console.InputEncoding,
+                               false,
+                               bufferSize: 99999999));
