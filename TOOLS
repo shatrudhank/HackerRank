@@ -7,12 +7,13 @@ Console.SetIn(new StreamReader(Console.OpenStandardInput(),
                                
                                
   //Read input without console                            
-      private static string  readString()
-    {
-        int size = 100;
-        Stream inputStream = Console.OpenStandardInput();
-        byte[] bytes = new byte[size];       
-        int outputLength = inputStream.Read(bytes, 0,size);
-        char[] chars = Encoding.UTF7.GetChars(bytes, 0, outputLength);
-        return chars.ToString();
-    }
+
+    
+    static String rs(){return Console.ReadLine();}
+	static int ri(){return int.Parse(Console.ReadLine());}
+	static long rl(){return long.Parse(Console.ReadLine());}
+	static double rd(){return double.Parse(Console.ReadLine());}
+	static String[] rsa(){return Console.ReadLine().Split(' ');}
+	static int[] ria(){return Array.ConvertAll(Console.ReadLine().Split(' '),e=>int.Parse(e));}
+	static long[] rla(){return Array.ConvertAll(Console.ReadLine().Split(' '),e=>long.Parse(e));}
+	static double[] rda(){return Array.ConvertAll(Console.ReadLine().Split(' '),e=>double.Parse(e));}
