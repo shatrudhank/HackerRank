@@ -8,12 +8,58 @@ Console.SetIn(new StreamReader(Console.OpenStandardInput(),
                                
   //Read input without console                            
 
-    
-    static String rs(){return Console.ReadLine();}
-	static int ri(){return int.Parse(Console.ReadLine());}
-	static long rl(){return long.Parse(Console.ReadLine());}
-	static double rd(){return double.Parse(Console.ReadLine());}
-	static String[] rsa(){return Console.ReadLine().Split(' ');}
-	static int[] ria(){return Array.ConvertAll(Console.ReadLine().Split(' '),e=>int.Parse(e));}
-	static long[] rla(){return Array.ConvertAll(Console.ReadLine().Split(' '),e=>long.Parse(e));}
-	static double[] rda(){return Array.ConvertAll(Console.ReadLine().Split(' '),e=>double.Parse(e));}
+  using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading;
+
+public class Program
+{
+
+  
+    public void Solve()
+    {
+      
+    }
+
+
+
+    protected static TextReader reader;
+
+    static void Main()
+    {
+
+
+        reader = new StreamReader(Console.OpenStandardInput());
+
+
+        try
+        {
+            new Program().Solve();
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+        }
+        reader.Close();
+       
+    }
+
+
+
+
+    private static Queue<string> currentLineTokens = new Queue<string>();
+    private static string[] ReadAndSplitLine() { return reader.ReadLine().Split(new[] { ' ', '\t', }, StringSplitOptions.RemoveEmptyEntries); }
+    public static string rS() { while (currentLineTokens.Count == 0) currentLineTokens = new Queue<string>(ReadAndSplitLine()); return currentLineTokens.Dequeue(); }
+    public static int rI() { return int.Parse(rS()); }
+    public static long rL() { return long.Parse(rS()); }
+    public static double rD() { return double.Parse(rS(), CultureInfo.InvariantCulture); }
+    public static int[] rIA() { return ReadAndSplitLine().Select(int.Parse).ToArray(); }
+    public static long[] rLA() { return ReadAndSplitLine().Select(long.Parse).ToArray(); }
+    public static double[] rDA() { return ReadAndSplitLine().Select(s => double.Parse(s, CultureInfo.InvariantCulture)).ToArray(); }
+
+}
