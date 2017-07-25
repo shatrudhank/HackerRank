@@ -7,15 +7,12 @@ Console.SetIn(new StreamReader(Console.OpenStandardInput(),
                                
                                
   //Read input without console                            
-        private static String readString()
-        {
-            char ch;
-            StringBuilder sb = new StringBuilder();
-            do
-            {
-                
-                ch = Console.ReadKey().KeyChar;
-                sb.Append(ch);
-            } while (ch != 13);
-            return sb.ToString(0,sb.Length-1);
-        }
+      private static string  readString()
+    {
+        int size = 100;
+        Stream inputStream = Console.OpenStandardInput();
+        byte[] bytes = new byte[size];       
+        int outputLength = inputStream.Read(bytes, 0,size);
+        char[] chars = Encoding.UTF7.GetChars(bytes, 0, outputLength);
+        return chars.ToString();
+    }
