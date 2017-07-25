@@ -4,3 +4,18 @@ Console.SetIn(new StreamReader(Console.OpenStandardInput(),
                                Console.InputEncoding,
                                false,
                                bufferSize: 99999999));
+                               
+                               
+  //Read input without console                            
+        private static String readString()
+        {
+            char ch;
+            StringBuilder sb = new StringBuilder();
+            do
+            {
+                
+                ch = Console.ReadKey().KeyChar;
+                sb.Append(ch);
+            } while (ch != 13);
+            return sb.ToString(0,sb.Length-1);
+        }
