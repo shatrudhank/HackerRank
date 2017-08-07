@@ -38,5 +38,33 @@
         Console.WriteLine(pos+2);
     }
     
+    
+    //to get ranking of number
+                                     -------Method 2------
+     public  static int  BinarySearchDescending(int[] s,int e)
+    {
+
+     
+        int n = s.Length-1;
+        int i = 0,m=0;
+        while (i<=n)
+        {
+           m = (i + n) / 2;            
+           if(s[m]>e)
+            {
+                i = m + 1;
+            }
+            else
+            {
+                n = m - 1;
+            }
+          
+
+        }
+        return i;
+    }
+    
+   
+
     ---------------------------------------------------------------------------------------------------------------------------------------
     
