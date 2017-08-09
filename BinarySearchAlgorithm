@@ -1,46 +1,4 @@
   
-  --------------------------------------------Binary Search for descending----------------------------------------------------------------
-  public  static string  BinarySearchDescending(int[] s,int e)
-    {
-
-        //if found  return the position of element 
-        //else  return the position of element last searched
-        int n = s.Length-1;
-        int i = 0,m=0;
-        while (i<=n)
-        {
-           m = (i + n) / 2;
-            if(s[m]==e)
-            {
-                return "f." + m;
-            }
-            else if(s[m]>e)
-            {
-                i = m + 1;
-            }
-            else
-            {
-                n = m - 1;
-            }
-          
-
-        }
-        return "nf." + m;
-    }
-    
-   
-   if(Elements[m]<searcheditem)
-    {
-        Console.WriteLine(pos+1);
-    }
-    else
-    {
-        Console.WriteLine(pos+2);
-    }
-    
-    
-    //to get ranking of number
-                                     -------Method 2------
      public  static int  BinarySearchDescending(int[] s,int e)
     {
 
@@ -68,3 +26,25 @@
 
     ---------------------------------------------------------------------------------------------------------------------------------------
     
+  public static int BinarySearchAscending(int[] s, int e)
+        {
+
+
+            int n = s.Length - 1;
+            int i = 0, m = 0;
+            while (i <= n)
+            {
+                m = (i + n) / 2;
+                if (s[m] < e)
+                {
+                    i = m + 1;
+                }
+                else
+                {
+                    n = m - 1;
+                }
+
+
+            }
+            return i;
+        }
