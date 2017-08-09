@@ -48,3 +48,34 @@
             }
             return i;
         }
+        ---------------------------------------------------------------------------------------------------
+        
+         public static bool IsAvailable(int[] s, int e)
+        {
+
+
+            int n = s.Length - 1;
+            int i = 0, m = 0;
+            bool status = false;
+            while (i <= n)
+            {
+                m = (i + n) / 2;
+                if (s[m] == e)
+                {
+                    status = true;
+                    break;
+                }
+                else if(s[m]<e)
+                {
+                    i = m +1;
+                }
+                else
+                {
+                    n = m - 1;
+                }
+             
+
+
+            }
+            return status;
+        }
