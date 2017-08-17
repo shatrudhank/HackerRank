@@ -18,7 +18,7 @@ using System.Threading;
 
 public class Program
 {
-
+   protected static TextReader reader;
   
     public void Solve()
     {
@@ -27,7 +27,7 @@ public class Program
 
 
 
-    protected static TextReader reader;
+ 
 
     static void Main()
     {
