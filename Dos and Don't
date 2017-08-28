@@ -8,3 +8,17 @@
     Reference:  https://www.hackerrank.com/challenges/weighted-uniform-string/submissions
     
 3. convert a unknown type to string type by using .toString() can be dangerous if the object is null.
+
+4.     
+    To convert string to int use this method for efficiency.
+    Test case at Dashboard  Algorithms: Graph Theory  Dijkstra: Shortest Reach 2
+    
+    public static int ConvertToInt(string s)
+        {
+            int y = 0;
+            foreach (char c in s)
+            {
+                y = y * 10 + (c - '0');
+            }
+            return y;
+        }
