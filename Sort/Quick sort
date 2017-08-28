@@ -1,0 +1,101 @@
+
+
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading;
+
+public class Program
+{
+    static void swap(ref int a, ref int b)
+    {
+        int t = a;
+        a = b;
+        b = t;
+    }
+    static int Partition(int[] arr, int first, int last)
+    {
+        int i = first + 1;
+        int p = arr[first];
+
+        for (int j = first + 1; j <= last; j++)
+        {
+            if (arr[j] < p)
+            {
+                swap(ref arr[j], ref arr[i]);
+                i++;
+            }
+        }
+        swap(ref arr[first], ref arr[i - 1]);
+        return i - 1;
+    }
+
+    static void QuickSort(int[] A, int start, int end)
+    {
+        if (start < end)
+        {
+            //stores the position of pivot element
+            int piv_pos = Partition(A, start, end);
+            QuickSort(A, start, piv_pos - 1);    //sorts the left side of pivot.
+            QuickSort(A, piv_pos + 1, end); //sorts the right side of pivot.
+        }
+    }
+
+    static void Main()
+    {
+        int[] a=Ria();
+        QuickSort(a,0,7);
+
+        Console.WriteLine(string.Join(" ",a));
+
+    }
+
+
+    static string Rs()
+    {
+        return Console.ReadLine().Trim();
+    }
+    static string[] Rsa()
+    {
+        return Console.ReadLine().Trim().Split(' ');
+    }
+    static int Ri()
+    {
+        return ConvertToInt(Rs());
+    }
+    public static int[] Ria(int n)
+    {
+        int[] num = new int[n];
+        string[] s = Rsa();
+        for (int i = 0; i < n; i++)
+        {
+            num[i] = ConvertToInt(s[i]);
+        }
+        return num;
+    }
+    public static int[] Ria()
+    {
+
+        string[] s = Rsa();
+        int n = s.Length;
+        int[] num = new int[n];
+        for (int i = 0; i < n; i++)
+        {
+            num[i] = ConvertToInt(s[i]);
+        }
+        return num;
+    }
+    public static int ConvertToInt(string s)
+    {
+        int y = 0;
+        foreach (char c in s)
+        {
+            y = y * 10 + (c - '0');
+        }
+        return y;
+    }
+
+}
