@@ -1,12 +1,4 @@
-//To increase size of console input since it can take only 256 characters
-
-Console.SetIn(new StreamReader(Console.OpenStandardInput(),
-                               Console.InputEncoding,
-                               false,
-                               bufferSize: 99999999));
-                               
-                               
-  //Read input without console                            
+               
 
   using System;
 using System.Collections.Generic;
@@ -18,48 +10,26 @@ using System.Threading;
 
 public class Program
 {
-   protected static TextReader reader;
-  
-    public void Solve()
-    {
-      
-    }
-
-
-
- 
 
     static void Main()
     {
+        //Console.SetIn(new StreamReader(Console.OpenStandardInput(),
+        //                       Console.InputEncoding,
+        //                       false,
+        //                       bufferSize: 99999999));
 
 
-        reader = new StreamReader(Console.OpenStandardInput());
-
-
-        try
-        {
-            new Program().Solve();
-
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex);
-        }
-        reader.Close();
        
     }
 
-
-
-
-    private static Queue<string> currentLineTokens = new Queue<string>();
-    private static string[] ReadAndSplitLine() { return reader.ReadLine().Split(new[] { ' ', '\t', }, StringSplitOptions.RemoveEmptyEntries); }
-    public static string rS() { while (currentLineTokens.Count == 0) currentLineTokens = new Queue<string>(ReadAndSplitLine()); return currentLineTokens.Dequeue(); }
-    public static int rI() { return int.Parse(rS()); }
-    public static long rL() { return long.Parse(rS()); }
-    public static double rD() { return double.Parse(rS(), CultureInfo.InvariantCulture); }
-    public static int[] rIA() { return ReadAndSplitLine().Select(int.Parse).ToArray(); }
-    public static long[] rLA() { return ReadAndSplitLine().Select(long.Parse).ToArray(); }
-    public static double[] rDA() { return ReadAndSplitLine().Select(s => double.Parse(s, CultureInfo.InvariantCulture)).ToArray(); }
-
+    public static int ConvertToInt(string s)
+    {
+        int y = 0;
+        foreach (char c in s)
+        {
+            y = y * 10 + (c - '0');
+        }
+        return y;
+    }
+    
 }
