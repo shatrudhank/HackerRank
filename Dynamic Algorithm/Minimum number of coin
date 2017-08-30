@@ -8,18 +8,39 @@ using System.Threading;
 
 public class Program
 {
-
     static int MinimumCoin(int[] c, int n, int m)
+    {
+        int result = int.MaxValue;
+        if (m == 0)
+            return 0;
+        for (int i = 0; i < n; i++)
+        {
+            if (m >= c[i])
+            {
+                int subResult = MinimumCoin(c, n, m - c[i]);
+                if (subResult != int.MaxValue && subResult + 1 < result)
+                    result = subResult + 1;
+
+            }
+
+
+        }
+        return result;
+    }
+
+    static long NumberWayOfToMakeChange(int[] c, int n, int m)
     {
         int[] table = new int[m + 1];
         table[0] = 0;
-        for(int j=1;j<m;j++)
+        for (int i = 1; i < m + 1; i++)
+            table[i] = int.MaxValue;
+        for(int i=1;i<m+1;i++)
         {
-            for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++)
             {
-                if (j>= c[i])
+                if (i>= c[j])
                 {
-                    int subResult = table[j- c[i]];
+                    int subResult = table[i- c[j]];
                     if (subResult != int.MaxValue && subResult + 1 < table[i])
                         table[i] = subResult + 1;
 
@@ -38,12 +59,13 @@ public class Program
         //                       false,
         //                       bufferSize: 99999999));
 
-        int n = Ri();
+        int[] x = Ria();
+
         int[] c = Ria();
-        int m = Ri();
+    
 
 
-        Console.WriteLine(MinimumCoin(c, n, m));
+        Console.WriteLine(MinimumCoin(c, x[1],x[0]));
 
 
 
