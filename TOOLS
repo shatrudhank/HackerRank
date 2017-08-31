@@ -8,22 +8,11 @@ using System.Threading;
 
 public class Program
 {
-   
-   
+
+
     static void Main()
     {
-        //Console.SetIn(new StreamReader(Console.OpenStandardInput(),
-        //                       Console.InputEncoding,
-        //                       false,
-        //                       bufferSize: 99999999));
-
-
-        int[] n = new int[4];
-        add(n, 0, 3);
-        Console.WriteLine(string.Join(" ",n));
-
-           
-
+      
     }
 
 
@@ -36,8 +25,12 @@ public class Program
         return Console.ReadLine().Trim().Split(' ');
     }
     static int Ri()
-    {     
+    {
         return ConvertToInt(Rs());
+    }
+    static int Rl()
+    {
+        return ConvertToLong(Rs());
     }
     public static int[] Ria(int n)
     {
@@ -51,7 +44,7 @@ public class Program
     }
     public static int[] Ria()
     {
-        
+
         string[] s = Rsa();
         int n = s.Length;
         int[] num = new int[n];
@@ -64,6 +57,15 @@ public class Program
     public static int ConvertToInt(string s)
     {
         int y = 0;
+        foreach (char c in s)
+        {
+            y = y * 10 + (c - '0');
+        }
+        return y;
+    }
+    public static int ConvertToLong(string s)
+    {
+        long y = 0;
         foreach (char c in s)
         {
             y = y * 10 + (c - '0');
