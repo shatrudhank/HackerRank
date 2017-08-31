@@ -28,7 +28,7 @@ public class Program
     {
         return ConvertToInt(Rs());
     }
-    static int Rl()
+    static long Rl()
     {
         return ConvertToLong(Rs());
     }
