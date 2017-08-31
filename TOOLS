@@ -63,7 +63,7 @@ public class Program
         }
         return y;
     }
-    public static int ConvertToLong(string s)
+    public static long ConvertToLong(string s)
     {
         long y = 0;
         foreach (char c in s)
