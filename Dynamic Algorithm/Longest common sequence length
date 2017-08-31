@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+
+using System.Text;
+using System.Threading;
+
+public class Program
+{
+    static void Main()
+    {
+
+        Console.SetIn(new StreamReader(Console.OpenStandardInput(),
+                               Console.InputEncoding,
+                               false,
+                               bufferSize: 99999999));
+
+        string s1 = Console.ReadLine();
+        string s2 = Console.ReadLine();
+
+        int n1 = s1.Length; int n2 = s2.Length;
+        int[] lcs = new int[n2 + 1];
+     
+        for (int i = 0; i < n1; i++)
+        {
+            int t1 = 0, t2 = 0;
+            for (int j = 0; j < n2; j++)
+            {
+
+                if (s1[i] == s2[j])
+                {
+                    t2 = lcs[j + 1];
+                    lcs[j + 1] = t1 + 1;
+                    t1 = t2;
+                }
+                else
+                {
+                    t1 = lcs[j + 1];
+                    lcs[j + 1] = Math.Max(lcs[j + 1], lcs[j]);
+                   
+
+                }
+
+            }
+
+
+        }
+        Console.WriteLine(lcs[n1]);
+
+    }
+
+
+
+
+
+}
