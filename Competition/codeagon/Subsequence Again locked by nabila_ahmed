@@ -1,0 +1,142 @@
+You are provided with a string  and an integer . You have to find another string  which satisfies the following conditions:
+
+ must be a subsequence of .
+Every character in  must occur at least  times.
+The length of  must be as large as possible.
+If there are multiple strings for  with largest possible length, pick the lexicographically smallest one.
+For example, let's say the string is  hackerrank and .
+
+image
+
+The solution for this is  akrrak. Here  is a subsequence of , it contains the characters ,  and  repeated at least  times. And, it is the only longest possible subsequence that satisfies the conditions.
+
+Input Format
+
+The first line contains a string  denoting the original string. 
+The second line contains an integer .
+
+Constraints
+
+String  will only contain lowercase English characters.
+Every input will have a valid solution.
+Output Format
+
+Print the string  on a single line.
+
+Sample Input 0
+
+hackerrank
+2
+Sample Output 0
+
+akrrak
+
+
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading;
+
+public class Program
+{
+
+
+    static void Main()
+    {
+        Console.SetIn(new StreamReader(Console.OpenStandardInput(),
+                               Console.InputEncoding,
+                               false,
+                               bufferSize: 99999999));
+        string str = Rs();
+        int k = Ri();
+        int n = str.Length;
+        int[] a = new int[26];
+        for(int i=0;i<n; i++)
+        {
+            a[(str[i] - 'a')]++;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < n; i++)
+        {
+            if(a[str[i]-'a']>=k)
+            {
+                sb.Append(str[i].ToString());
+            }
+        }
+        Console.WriteLine(sb.ToString());
+    }
+
+  
+
+
+    static string Rs()
+    {
+        return Console.ReadLine().Trim();
+    }
+    static string[] Rsa()
+    {
+        return Console.ReadLine().Trim().Split(' ');
+    }
+    static int Ri()
+    {
+        return ConvertToInt(Rs());
+    }
+    static long Rl()
+    {
+        return ConvertToLong(Rs());
+    }
+    public static int[] Ria(int n)
+    {
+        int[] num = new int[n];
+        string[] s = Rsa();
+        for (int i = 0; i < n; i++)
+        {
+            num[i] = ConvertToInt(s[i]);
+        }
+        return num;
+    }
+    public static long[] Rla()
+    {
+        string[] s = Rsa();
+        int n = s.Length;
+        long[] num = new long[n];
+        for (int i = 0; i < n; i++)
+        {
+            num[i] = ConvertToLong(s[i]);
+        }
+        return num;
+    }
+    public static int[] Ria()
+    {
+
+        string[] s = Rsa();
+        int n = s.Length;
+        int[] num = new int[n];
+        for (int i = 0; i < n; i++)
+        {
+            num[i] = ConvertToInt(s[i]);
+        }
+        return num;
+    }
+    public static int ConvertToInt(string s)
+    {
+        int y = 0;
+        foreach (char c in s)
+        {
+            y = y * 10 + (c - '0');
+        }
+        return y;
+    }
+    public static long ConvertToLong(string s)
+    {
+        long y = 0;
+        foreach (char c in s)
+        {
+            y = y * 10 + (c - '0');
+        }
+        return y;
+    }
+}
