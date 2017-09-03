@@ -1,0 +1,152 @@
+You are given an array, , of  non-zero positive integers. The array is said to be beautiful if all the following constraints are satisfied:
+
+The array consists of unique elements.
+The array elements are not sorted in ascending order.
+All the array elements should have a value between  to  inclusive, i.e., , where, .
+If the array is beautiful, print Beautiful; otherwise print Ugly.
+
+For example, array  = [1, 2, 3, 4] is considered Ugly because all elements are sorted in ascending order hence violating the second constraint.
+
+Input Format
+
+The first line of the input is an integer , the total number of queries. Each query consists of two lines. 
+The first line of each query contains an integer  denoting the total number of elements in the array and the second line of each query contains  space separated integers describing the array, .
+
+Constraints
+
+, where, 
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading;
+
+public class Program
+{
+
+
+    static void Main()
+    {
+        Console.SetIn(new StreamReader(Console.OpenStandardInput(),
+                               Console.InputEncoding,
+                               false,
+                               bufferSize: 99999999));
+        int q = Ri();
+        for (int i = 0; i < q; i++)
+       {
+            int n = Ri();
+
+            HashSet<long> h = new HashSet<long>(Rla());
+
+            int len = h.Count;
+            bool s1 = false, s2 = true, s3 = true;
+            long[] a = h.ToArray();
+            if (len == n)
+            {
+                s1 = true;
+            }
+            if(s1)
+                for (int j = 1; j < n; j++)
+                {
+                    if (a[j - 1] > a[j])
+                    {
+                        s2 = false;
+                        break;
+                    }
+                }
+                if(!s2 && s1)
+                for (int j = 0; j < n; j++)
+                {
+                    if (a[j] > n || a[j] < 1)
+                    {
+                        s3 = false;
+                        break;
+                    }
+                }
+            
+         
+            if(s1 && !s2 && s3)
+                Console.WriteLine("Beautiful");
+            else
+                Console.WriteLine("Ugly");
+
+
+        }
+    }
+  
+
+
+    static string Rs()
+    {
+        return Console.ReadLine().Trim();
+    }
+    static string[] Rsa()
+    {
+        return Console.ReadLine().Trim().Split(' ');
+    }
+    static int Ri()
+    {
+        return ConvertToInt(Rs());
+    }
+    static long Rl()
+    {
+        return ConvertToLong(Rs());
+    }
+    public static int[] Ria(int n)
+    {
+        int[] num = new int[n];
+        string[] s = Rsa();
+        for (int i = 0; i < n; i++)
+        {
+            num[i] = ConvertToInt(s[i]);
+        }
+        return num;
+    }
+    public static long[] Rla()
+    {
+        string[] s = Rsa();
+        int n = s.Length;
+        long[] num = new long[n];
+        for (int i = 0; i < n; i++)
+        {
+            num[i] = ConvertToLong(s[i]);
+        }
+        return num;
+    }
+    public static int[] Ria()
+    {
+
+        string[] s = Rsa();
+        int n = s.Length;
+        int[] num = new int[n];
+        for (int i = 0; i < n; i++)
+        {
+            num[i] = ConvertToInt(s[i]);
+        }
+        return num;
+    }
+    public static int ConvertToInt(string s)
+    {
+        int y = 0;
+        foreach (char c in s)
+        {
+            y = y * 10 + (c - '0');
+        }
+        return y;
+    }
+    public static long ConvertToLong(string s)
+    {
+        long y = 0;
+        foreach (char c in s)
+        {
+            y = y * 10 + (c - '0');
+        }
+        return y;
+    }
+}
