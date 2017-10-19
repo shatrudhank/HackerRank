@@ -12,7 +12,10 @@ public class Program
 
     static void Main()
     {
-      
+       Console.SetIn(new StreamReader(Console.OpenStandardInput(),
+                               Console.InputEncoding,
+                               false,
+                               bufferSize: 99999999));
     }
 
 
