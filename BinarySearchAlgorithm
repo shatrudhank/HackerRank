@@ -83,7 +83,7 @@
            static int BinarySearch(int[] arr,int f,int l,int val)
     {
       int  m=(f+l)/2;
-      if(f<l)
+      if(f<=l)
       {
           if(arr[m]==val)
           {
