@@ -79,3 +79,26 @@
             }
             return status;
         }
+        
+           static int BinarySearch(int[] arr,int f,int l,int val)
+    {
+      int  m=(f+l)/2;
+      if(f<l)
+      {
+          if(arr[m]==val)
+          {
+        	  return m; 
+          }
+          else if(arr[m]>val)
+           {
+        	   l=m-1;
+           }
+           else if(arr[m]<val)
+            {
+        	   f=m+1;
+           }
+    	   return BinarySearch(arr, f, l, val);
+      }
+
+    	  return f;
+    }
